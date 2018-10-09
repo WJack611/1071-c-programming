@@ -4,7 +4,9 @@ int enc(int n){
     a=n/1000;
     z=(n-a*1000)/100;
     if(y=(a+5)>=9)
-        y2=(a+5)-10;
+        y2=(a+5)-9;
+    else
+        y2=a+5;
     w=(n-a*1000-z*100)/10;
     x=(n-a*1000-z*100-w*10);
 printf("encode(%d)%d%d%d%d //by calling encode(n)\n", n, w, x, y2, z);
@@ -40,3 +42,5 @@ int main(){
     return 0;
 
 }
+
+
