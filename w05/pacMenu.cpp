@@ -21,7 +21,9 @@ int enc(int n)
     a=n/1000;
     z=(n-a*1000)/100;
     if(y=(a+5)>=9)
-        y2=(a+5)-10;
+        y2=(a+5)-9;
+    else
+        y2=a+5;
     w=(n-a*1000-z*100)/10;
     x=(n-a*1000-z*100-w*10);
     printf("encode(%d)%d%d%d%d //by calling encode(n)\n", n, w, x, y2, z);
@@ -42,6 +44,19 @@ int main()
 {
     while(1)
     {
+        int n;
+        int height;
+        int a1;
+        int a2;
+        float a3;
+        float a4;
+        int x1;
+        int x2;
+        int x3;
+        int x4;
+        int x5;
+        int x6;
+        int x7;
         int choice;
         printf("(1) Arithmetic Computation\n");
         printf("(2) List BMI ranges\n");
@@ -51,19 +66,14 @@ int main()
         printf("(6) Exit\n");
         printf("=>");
         scanf("%d", &choice);
-        if(choice==6)break;
+        if(choice==6)
+            break;
         switch(choice)
-    {
-    case 1:
-        int x1;
-        int x2;
-        int x3;
-        int x4;
-        int x5;
-        int x6;
-        int x7;
+        {
+        case 1:
 
-        printf("Enter Two Integers:");
+
+            printf("Enter Two Integers:");
             scanf("%d %d", &x1, &x2);
             x3=x1+x2;
             x4=x1-x2;
@@ -75,12 +85,10 @@ int main()
             printf("%d * %d = %d\n", x1, x2, x5);
             printf("%d / %d = %d\n", x1, x2, x6);
             printf("%d %% %d = %d\n", x1, x2, x7);
+            printf("\n");
             break;
         case 2:
-            int a1;
-            int a2;
-            float a3;
-            float a4;
+
 
             while(1)
             {
@@ -89,6 +97,7 @@ int main()
                 if(a1==-1&&a2==-1)
                 {
                     printf("Bye! Coding by 407410231\n");
+                    printf("\n");
                     break;
                 }
                 for(int i=a1; i<=a2; i++)
@@ -96,13 +105,15 @@ int main()
                     a3=18.5*i*i/10000;
                     a4=24.0*i*i/10000;
                     printf("%4d cm: %.1f ~ %.1f (kg)\n", i, a3, a4);
+                    printf("\n");
 
                 }
+                break;
             }
             break;
 
         case 3:
-            int height;
+
             while(1)
             {
                 printf("Enter Height(-1 to exit):");
@@ -110,15 +121,17 @@ int main()
                 if(height==-1)
                 {
                     printf("Bye! Coding by 407410231\n");
+                    printf("\n");
                     break;
                 }
                 else
                     trian(height);
-                    break;
+                printf("\n");
+                break;
             }
             break;
         case 4:
-            int n;
+
             while(1)
             {
                 printf("Enter N:");
@@ -126,6 +139,7 @@ int main()
                 if(n==-1)
                 {
                     printf("Bye! Coding by 407410231\n");
+                    printf("\n");
                     break;
 
                 }
@@ -133,8 +147,32 @@ int main()
                 {
                     enc(n);
                     dec(n);
+                    printf("\n");
 
                 }
+                break;
+            }
+            break;
+        case 5:
+            while(1)
+            {
+                printf("Enter N:");
+                scanf("%d", &n);
+                if(n==-1)
+                {
+                    printf("Bye! Coding by 407410231\n");
+                    printf("\n");
+                    break;
+
+                }
+                else
+                {
+                    enc(n);
+                    dec(n);
+                    printf("\n");
+
+                }
+                break;
             }
             break;
 
