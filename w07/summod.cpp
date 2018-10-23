@@ -1,22 +1,27 @@
 #include <stdio.h>
 int rsum1(int n){
-    int odd;
-    odd=n*2-1;
     if(n==1)
         return 1;
     else
-        return rsum1(n-1)+odd;
+        return rsum1(n-1)+(2*n-1);
 
 }
 int rsum2(int n){
+    int odd;
     if(n%2==1){
        if(n==1)
         return 1;
     else
         return rsum2(n-2)+n;
     }
-    else
-        return 0;
+    else{
+        odd=n-1;
+        if(odd==1)
+            return 1;
+        else
+            return rsum2(odd-2)+odd;
+    }
+
 
 }
 int main(){
