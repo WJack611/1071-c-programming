@@ -33,7 +33,7 @@ void magicK(int m[][Max], int N){
             row=(row-1+N)%N;
             m[row][col]=i;
         }else{
-            row=(row-N+1)%N;
+            row=(row-2+N)%N;
             col=(col+1)%N;
             m[row][col]=i;
             }
