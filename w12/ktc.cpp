@@ -46,7 +46,30 @@ Pos NBP(int ac[][8],int row,int col)
     pos.col = minCol;
     return pos;
 }
-void KT(int m[][8],int ac[][8],int row,int col){
+int knightTour(int m[][8],int ac[][8],int row,int col){
+    int moves=1;
+    Pos pos;
+        m[row][col]=1;
+        for(int i=2; i<=64; i++)
+        {
+        pos = NBP(ac,row,col);
+        moves++;
+        if(pos.row==-1&&pos.col==-1)
+        {
+
+            break;
+        }
+        else
+        {
+            m[pos.row][pos.col]=i;
+            row = pos.row;
+            col = pos.col;
+        }
+
+        }
+   return moves;
+}
+void KTs(int m[][8],int ac[][8],int row,int col){
         int moves=1;
         Pos pos;
         m[row][col]=1;
@@ -68,7 +91,8 @@ void KT(int m[][8],int ac[][8],int row,int col){
 
         }
         prArr(m);
-        printf("Total moves:%d\n",moves);
+        printf("The tour ended with %d moves.\n",moves);
+        printf("This was a full tour!\n");
 }
 int main(){
     Pos pos;
@@ -93,15 +117,21 @@ int main(){
     printf("1. Knight Tour by entering position\n");
     printf("2. Check 64 cases\n");
     printf("3. Exit\n");
-    printf("=>");
+    printf("=>choice");
     scanf("%d",&n);
     if(n==3)break;
     switch(n){
        case 1:
         printf("Enter row and col for number 1:");
         scanf("%d %d",&row,&col);
-        KT(m,ac,row,col);
-
+        KTs(m,ac,row,col);
+       case 2:
+        for(int i=0;i<7;i++){
+        for(int j=0;j<7;j++){
+        counting[i][j] = knightTour(m,ac,i,j);
+        }
+        }
+        prArr(counting);
     }
 
 
