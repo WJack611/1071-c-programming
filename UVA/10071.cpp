@@ -1,8 +1,9 @@
 #include <stdio.h>
 int main(){
-    float v,t,a;
-    while(scanf("%f %f",&v,&t)!=EOF){
-     a=v/t;
+    int v,t,x;
+    while(scanf("%d%d",&v,&t)!=EOF){
+     int x=0.5*v*4*t;
+     printf("%d\n",x);
     }
-    printf("%f",2*a*t*t);
+    return 0;
 }
