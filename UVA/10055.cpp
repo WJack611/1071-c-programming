@@ -1,7 +1,12 @@
 #include<stdio.h>
 int main(){
-    int a,b;
-    printf("Enter a b:");
-    scanf("%d %d",&a,&b);
-    printf("%d",b-a);
+    long long a,b,c;
+    while(scanf("%lld%lld",&a,&b)!=EOF){
+     if(a>b)
+        c=a-b;
+     else
+        c=b-a;
+    printf("%lld\n",c);
+    }
+    return 0;
 }
