@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define Max 200
 
-float counts(int a,int b,float e[Max],float c[Max]){
+float counts1(int a,int b,float e[Max],float c[Max]){
     float sum=0;
     for(int i=a;i<=b-1;i++){
         if(i<=9)
@@ -14,6 +14,57 @@ float counts(int a,int b,float e[Max],float c[Max]){
             c[i]=e[i]/(600*2.5)/5;
         else if(i>89&&i<=119)
             c[i]=e[i]/(600*3.0)/5;
+        sum=sum+c[i];
+    }
+    return sum;
+}
+float counts1s(int a,int b,float e[Max],float c[Max]){
+    float sum=0;
+    for(int i=a;i<=b-1;i++){
+        if(i<=9)
+            c[i]=e[i]/(500*1.0)/5;
+        else if(i>9&&i<=29)
+            c[i]=e[i]/(500*1.5)/5;
+        else if(i>29&&i<=69)
+            c[i]=e[i]/(500*2.0)/5;
+        else if(i>69&&i<=89)
+            c[i]=e[i]/(500*2.5)/5;
+        else if(i>89&&i<=119)
+            c[i]=e[i]/(500*3.0)/5;
+        sum=sum+c[i];
+    }
+    return sum;
+}
+float counts2(int a,int b,float e[Max],float c[Max]){
+    float sum=0;
+    for(int i=a;i<=b-1;i++){
+        if(i<=9)
+            c[i]=e[i]/(470*1.0)/5;
+        else if(i>9&&i<=29)
+            c[i]=e[i]/(470*1.5)/5;
+        else if(i>29&&i<=69)
+            c[i]=e[i]/(470*2.0)/5;
+        else if(i>69&&i<=89)
+            c[i]=e[i]/(470*2.5)/5;
+        else if(i>89&&i<=119)
+            c[i]=e[i]/(470*3.0)/5;
+        sum=sum+c[i];
+    }
+    return sum;
+}
+float counts2s(int a,int b,float e[Max],float c[Max]){
+    float sum=0;
+    for(int i=a;i<=b-1;i++){
+        if(i<=9)
+            c[i]=e[i]/(392*1.0)/5;
+        else if(i>9&&i<=29)
+            c[i]=e[i]/(392*1.5)/5;
+        else if(i>29&&i<=69)
+            c[i]=e[i]/(392*2.0)/5;
+        else if(i>69&&i<=89)
+            c[i]=e[i]/(392*2.5)/5;
+        else if(i>89&&i<=119)
+            c[i]=e[i]/(392*3.0)/5;
         sum=sum+c[i];
     }
     return sum;
@@ -37,5 +88,10 @@ int main(){
     int a,b;
     printf("Enter current level and target level:\n");
     scanf("%d %d",&a,&b);
-    printf("need %.4f 8-1n",counts(a,b,e,c));
+    printf("need %.4f 8-1n\n",counts1(a,b,e,c));
+    printf("need %.4f 8-1n(if doll is not team leader/first place)\n",counts1s(a,b,e,c));
+    printf("\n");
+    printf("need %.4f 0-2\n",counts2(a,b,e,c));
+    printf("need %.4f 0-2(if doll is not team leader/first place)\n",counts2s(a,b,e,c));
 }
+
