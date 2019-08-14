@@ -46,8 +46,10 @@ float counts2(int a,int b,float e[Max],float c[Max]){
             c[i]=e[i]/(470*2.0)/5;
         else if(i>69&&i<=89)
             c[i]=e[i]/(470*2.5)/5;
-        else if(i>89&&i<=119)
+        else if(i>89&&i<=111)
             c[i]=e[i]/(470*3.0)/5;
+        else if(i>111&&i<=119)
+            c[i]=e[i]/(470*3.0*0.8)/5;
         sum=sum+c[i];
     }
     return sum;
@@ -63,8 +65,84 @@ float counts2s(int a,int b,float e[Max],float c[Max]){
             c[i]=e[i]/(392*2.0)/5;
         else if(i>69&&i<=89)
             c[i]=e[i]/(392*2.5)/5;
-        else if(i>89&&i<=119)
+        else if(i>89&&i<=111)
             c[i]=e[i]/(392*3.0)/5;
+        else if(i>111&&i<=119)
+            c[i]=e[i]/(392*3.0*0.8)/5;
+        sum=sum+c[i];
+    }
+    return sum;
+}
+float counts3(int a,int b,float e[Max],float c[Max]){
+    float sum=0;
+    for(int i=a;i<=b-1;i++){
+        if(i<=9)
+            c[i]=e[i]/(660*1.0)/5;
+        else if(i>9&&i<=29)
+            c[i]=e[i]/(660*1.5)/5;
+        else if(i>29&&i<=69)
+            c[i]=e[i]/(660*2.0)/5;
+        else if(i>69&&i<=89)
+            c[i]=e[i]/(660*2.5)/5;
+        else if(i>89&&i<=119)
+            c[i]=e[i]/(660*3.0)/5;
+        sum=sum+c[i];
+    }
+    return sum;
+}
+float counts3s(int a,int b,float e[Max],float c[Max]){
+    float sum=0;
+    for(int i=a;i<=b-1;i++){
+        if(i<=9)
+            c[i]=e[i]/(550*1.0)/5;
+        else if(i>9&&i<=29)
+            c[i]=e[i]/(550*1.5)/5;
+        else if(i>29&&i<=69)
+            c[i]=e[i]/(550*2.0)/5;
+        else if(i>69&&i<=89)
+            c[i]=e[i]/(550*2.5)/5;
+        else if(i>89&&i<=119)
+            c[i]=e[i]/(550*3.0)/5;
+        sum=sum+c[i];
+    }
+    return sum;
+}
+float autobattle7(int a,int b,float e[Max],float c[Max]){
+    float sum=0;
+    for(int i=a;i<=b-1;i++){
+        if(i<=9)
+            c[i]=e[i]/(290.8*1.5*10*1.0);
+        else if(i>9&&i<=29)
+            c[i]=e[i]/(290.8*1.5*10*1.5);
+        else if(i>29&&i<=69)
+            c[i]=e[i]/(290.8*1.5*10*2.0);
+        else if(i>69&&i<=89)
+            c[i]=e[i]/(290.8*1.5*10*2.5);
+        else if(i>89&&i<=96)
+            c[i]=e[i]/(290.8*1.5*10*3.0);
+        else if(i>96&&i<=106)
+            c[i]=e[i]/(290.8*1.5*10*3.0*0.8);
+        else if(i>106&&i<=116)
+            c[i]=e[i]/(290.8*1.5*10*3.0*0.6);
+        else if(i>116&&i<=119)
+            c[i]=e[i]/(290.8*1.5*10*3.0*0.4);
+        sum=sum+c[i];
+    }
+    return sum;
+}
+float autobattle11(int a,int b,float e[Max],float c[Max]){
+    float sum=0;
+    for(int i=a;i<=b-1;i++){
+        if(i<=9)
+            c[i]=e[i]/(364.1*10*1.5*1.0);
+        else if(i>9&&i<=29)
+            c[i]=e[i]/(364.1*10*1.5*1.5);
+        else if(i>29&&i<=69)
+            c[i]=e[i]/(364.1*10*1.5*2.0);
+        else if(i>69&&i<=89)
+            c[i]=e[i]/(364.1*10*1.5*2.5);
+        else if(i>89&&i<=119)
+            c[i]=e[i]/(364.1*10*1.5*3.0);
         sum=sum+c[i];
     }
     return sum;
@@ -86,12 +164,77 @@ int main(){
                 };
     float c[Max]={};
     int a,b;
-    printf("Enter current level and target level:\n");
-    scanf("%d %d",&a,&b);
-    printf("need %.4f 8-1n\n",counts1(a,b,e,c));
-    printf("need %.4f 8-1n(if doll is not team leader/first place)\n",counts1s(a,b,e,c));
-    printf("\n");
-    printf("need %.4f 0-2\n",counts2(a,b,e,c));
-    printf("need %.4f 0-2(if doll is not team leader/first place)\n",counts2s(a,b,e,c));
+    int choice1,choice2,choice3;
+    while(1){
+        printf("Select Normal or Auto Battle:\n");
+        printf("1. Normal\n");
+        printf("2. Auto\n");
+        printf("3. Exit\n");
+        printf("=>");
+        scanf("%d",&choice1);
+        printf("\n");
+        if(choice1==3) break;
+        switch(choice1){
+        case 1:
+            while(1){
+            printf("Enter current level and target level:\n");
+            scanf("%d %d",&a,&b);
+            printf("\n");
+            printf("Select map\n");
+            printf("1. 0-2\n");
+            printf("2. 8-1n\n");
+            printf("3. 11-5\n");
+            printf("4. Exit\n");
+            printf("=>");
+            scanf("%d",&choice2);
+            printf("\n");
+            switch(choice2){
+            case 1:
+                printf("need %.4f 0-2\n",counts2(a,b,e,c));
+                printf("need %.4f 0-2(if doll is not team leader)\n",counts2s(a,b,e,c));
+                break;
+            case 2:
+                printf("need %.4f 8-1n\n",counts1(a,b,e,c));
+                printf("need %.4f 8-1n(if doll is not team leader)\n",counts1s(a,b,e,c));
+                break;
+            case 3:
+                printf("need %.4f 11-5\n",counts3(a,b,e,c));
+                printf("need %.4f 11-5(if doll is not team leader)\n",counts3s(a,b,e,c));
+                break;
+            case 4:
+                break;
+                }
+            printf("\n");
+            break;
+            }
+            break;
+        case 2:
+            while(1){
+            printf("Enter current level and target level2:\n");
+            scanf("%d %d",&a,&b);
+            printf("\n");
+            printf("Select map\n");
+            printf("1. 7-1\n");
+            printf("2. 11-5\n");
+            printf("3. Exit\n");
+            printf("=>");
+            scanf("%d",&choice3);
+            printf("\n");
+            switch(choice3){
+            case 1:
+                printf("need 7-1 autobattle %.4f hours\n",autobattle7(a,b,e,c)/1.2);
+                printf("need 7-1 autobattle %.4f hours(if doll is not team leader)\n",autobattle7(a,b,e,c));
+                break;
+            case 2:
+                printf("need 11-5 autobattle %.4f hours\n",autobattle11(a,b,e,c)/1.2);
+                printf("need 11-5 autobattle %.4f hours(if doll is not team leader)\n",autobattle11(a,b,e,c));
+                break;
+                }
+            case 3:
+                break;
+            }
+            printf("\n");
+            break;
+        }
+    }
 }
-
